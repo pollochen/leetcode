@@ -50,3 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# visual studio files
+.vs/
+leetcode/x64/Debug/
+*.vcxproj.user
