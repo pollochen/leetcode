@@ -67,3 +67,30 @@ bool is_digit(char ch)
 {
 	return ch <= '9' && ch >= '0';
 }
+
+ListNode* make_list_node(vector<int> nums)
+{
+	ListNode* root = NULL;
+	ListNode* cur = NULL;
+	for (int i = 0; i < nums.size(); i++) {
+		if (i == 0) {
+			root = new ListNode(nums[0]);
+			cur = root;
+		} else {
+			ListNode* x = new ListNode(nums[i]);
+			cur->next = x;
+			cur = x;
+		}
+	}
+	return root;
+}
+
+void print_node_list(ListNode* root)
+{
+	printf("[");
+	while (root != NULL) {
+		printf("%d, ", root->val);
+		root = root->next;
+	}
+	printf("]\n");
+}
