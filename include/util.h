@@ -23,7 +23,9 @@ using namespace std;
 
 // TODO: reference additional headers your program requires here
 void print_vector_int(vector<int> &x);
+void print_vector_int(int* nums, int size);
 void print_matrix_string(vector<vector<string>> matrix);
 void print_matrix_char(vector<vector<char>> matrix);
 void print_matrix_int(vector<vector<int>> matrix);
 bool is_digit(char ch);
+void swap_int(int* x, int* y);

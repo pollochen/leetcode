@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "util.h"
 
 void print_vector_int(vector<int> &x)
 {
@@ -9,7 +9,21 @@ void print_vector_int(vector<int> &x)
 	printf("]\n");
 }
 
+void print_vector_int(int* nums, int size)
+{
+	printf("[");
+	for (int i = 0; i < size; i++) {
+		printf("%d, ", nums[i]);
+	}
+	printf("]\n");
+}
 
+void swap_int(int* x, int* y)
+{
+	int tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
 
 void print_matrix_string(vector<vector<string>> matrix)
 {
