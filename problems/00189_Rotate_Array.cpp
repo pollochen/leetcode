@@ -1,3 +1,5 @@
+// Runtime: 40 ms, faster than 58.79% of C++ online submissions for Rotate Array.
+// Memory Usage : 25.7 MB, less than 22.41 % of C++ online submissions for Rotate Array.
 // better solution: https://leetcode.com/problems/rotate-array/discuss/1817326/Java-Explained-Time-%3A-O(n)-Space-%3A-O(1)-Runtime%3A-0-ms-100-faster
 // faster version (in place)
 class Solution {
@@ -34,16 +36,19 @@ public:
 		}
 	}
 };
-
+// Runtime: 39 ms, faster than 61.51 % of C++ online submissions for Rotate Array.
+// Memory Usage : 25.7 MB, less than 22.41 % of C++ online submissions for Rotate Array.
 // slow version with memcpy
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
 		int size = nums.size();
+		// find the final shift steps
 		k = k % size;
 		if ((k == 0) || (size == 1)) return;
 		vector<int> result(nums.size());
 
+		// for each shift steps [0, k-1], we only 
 		for (int i = 0; i < k; i++) {
 			int idx = i;
 			while (idx < size) {

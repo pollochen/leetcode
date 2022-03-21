@@ -1,6 +1,10 @@
 /**
 * Note: The returned array must be malloced, assume caller calls free().
 */
+
+// brute force
+// Runtime: 116 ms, faster than 65.83 % of C online submissions for Two Sum.
+// Memory Usage : 6.6 MB, less than 27.49 % of C online submissions for Two Sum.
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 
 	int i, j;
