@@ -94,3 +94,15 @@ void print_node_list(ListNode* root)
 	}
 	printf("]\n");
 }
+
+int min_int(int x, int y)
+{
+	if (x < y) return x;
+	else return y;
+}
+
+int  max_int(int x, int y)
+{
+	if (x > y) return x;
+	return y;
+}

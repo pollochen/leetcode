@@ -61,5 +61,7 @@ void print_matrix_int(vector<vector<int>> matrix);
 void print_node_list(ListNode* root);
 bool is_digit(char ch);
 void swap_int(int* x, int* y);
+int  min_int(int x, int y);
+int  max_int(int x, int y);
 
 ListNode* make_list_node(vector<int> nums);
