@@ -26,3 +26,32 @@ public:
 		return false;        
     }
 };
+
+// fast slow pointers
+// Runtime: 10 ms, faster than 84.53% of C++ online submissions for Linked List Cycle.
+// Memory Usage: 8.1 MB, less than 57.19% of C++ online submissions for Linked List Cycle.
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if ((head == NULL) || (head->next == NULL)) {
+            return false;
+        }
+        ListNode *slow = head->next;
+        ListNode *fast = head->next->next;
+        while (fast != NULL) {
+            if (fast->next == NULL) return false;
+            if (fast == slow) return true;
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        return false;
+    }
+};

@@ -1,4 +1,6 @@
 // https://www.cnblogs.com/grandyang/p/4421217.html
+// Runtime: 35 ms, faster than 44.84% of C++ online submissions for Valid Sudoku.
+// Memory Usage : 18 MB, less than 75.32 % of C++ online submissions for Valid Sudoku.
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
