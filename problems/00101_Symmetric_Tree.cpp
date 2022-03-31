@@ -1,3 +1,5 @@
+// Runtime: 0 ms, faster than 100.00% of C++ online submissions for Symmetric Tree.
+// Memory Usage: 16.5 MB, less than 42.22% of C++ online submissions for Symmetric Tree.
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

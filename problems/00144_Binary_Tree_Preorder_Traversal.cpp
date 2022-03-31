@@ -9,6 +9,29 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// recursion
+// Runtime: 5 ms, faster than 18.42% of C++ online submissions for Binary Tree Preorder Traversal.
+// Memory Usage: 8.4 MB, less than 44.50% of C++ online submissions for Binary Tree Preorder Traversal.
+class Solution {
+public:
+    void pre_dfs(TreeNode *root, vector<int> &result)
+    {
+        if (root == NULL) return;
+        result.push_back(root->val);
+        if (root->left != NULL) pre_dfs(root->left, result);
+        if (root->right != NULL) pre_dfs(root->right, result);
+    }
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> result;
+        pre_dfs(root, result);
+        return result;
+    }
+};
+
+// iteration
+// Runtime: 0 ms, faster than 100.00% of C++ online submissions for Binary Tree Preorder Traversal.
+// Memory Usage: 8.5 MB, less than 44.50% of C++ online submissions for Binary Tree Preorder Traversal.
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {

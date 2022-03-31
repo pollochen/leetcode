@@ -9,6 +9,28 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// recursion
+// Runtime: 0 ms, faster than 100.00% of C++ online submissions for Binary Tree Inorder Traversal.
+// Memory Usage: 8.5 MB, less than 42.95% of C++ online submissions for Binary Tree Inorder Traversal.
+class Solution {
+public:
+    void in_dfs(TreeNode *root, vector<int> &result)
+    {
+        if (root == NULL) return;
+        if (root->left != NULL) in_dfs(root->left, result);
+        result.push_back(root->val);
+        if (root->right != NULL) in_dfs(root->right, result);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> result;
+        in_dfs(root, result);
+        return result;
+    }
+};
+
+// iteration
+// Runtime: 0 ms, faster than 100.00% of C++ online submissions for Binary Tree Inorder Traversal.
+// Memory Usage: 8.5 MB, less than 42.95% of C++ online submissions for Binary Tree Inorder Traversal.
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {

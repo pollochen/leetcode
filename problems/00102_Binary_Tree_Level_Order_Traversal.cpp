@@ -9,30 +9,33 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// interation stack version
+// Runtime: 7 ms, faster than 50.39% of C++ online submissions for Binary Tree Level Order Traversal.
+// Memory Usage: 12.4 MB, less than 85.07% of C++ online submissions for Binary Tree Level Order Traversal.
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         vector<vector<int>> result;
-        if (root == NULL) {
-            return result;
-        }
-        
-        queue<TreeNode *> q;
-        q.push(root);
-        while (q.empty() == false) {
-            vector<int> out;
-            int size = q.size();
-            for (int i = 0; i < size; i++) {
-                // publish value in queue
-                TreeNode *n = q.front(); q.pop();
-                out.push_back(n->val);
+        vector<int> out;
+        queue<TreeNode *> que;
+        TreeNode *node;
+        int size;
 
-                // push all child nodes into queue
-                if (n->left != NULL) q.push(n->left);
-                if (n->right != NULL) q.push(n->right);
+        if (root == NULL) return result;
+
+        que.push(root);
+
+        while (que.empty() == false) {
+            size = que.size();
+            for (int i = 0; i < size; i++) {
+                node = que.front(); que.pop();
+                out.push_back(node->val);
+                if (node->left != NULL) que.push(node->left);
+                if (node->right != NULL) que.push(node->right);
             }
             result.push_back(out);
+            out.clear();
         }
-        return result;        
+        return result;
     }
 };

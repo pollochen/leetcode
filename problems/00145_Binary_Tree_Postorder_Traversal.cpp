@@ -9,40 +9,53 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// recursion
+// Runtime: 0 ms, faster than 100.00% of C++ online submissions for Binary Tree Postorder Traversal.
+// Memory Usage: 8.6 MB, less than 38.93% of C++ online submissions for Binary Tree Postorder Traversal.
+class Solution {
+public:
+    void post_dfs(TreeNode *root, vector<int> &result)
+    {
+        if (root == NULL) return;
+        if (root->left != NULL) post_dfs(root->left, result);
+        if (root->right != NULL) post_dfs(root->right, result);
+        result.push_back(root->val);
+    }
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> result;
+        post_dfs(root, result);
+        return result;
+    }
+};
+
+// https://www.geeksforgeeks.org/iterative-postorder-traversal/?ref=lbp
+// iteration 2-stack version
+// Runtime: 8 ms, faster than 7.80% of C++ online submissions for Binary Tree Postorder Traversal.
+// Memory Usage: 8.5 MB, less than 38.93% of C++ online submissions for Binary Tree Postorder Traversal.
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
         vector<int> result;
-        stack<TreeNode *> stk;
+        stack<TreeNode *> stk1, stk2;
+        TreeNode* node;
 
-        if (root == NULL) {
-            return result;
+        if (root == NULL) return result;
+
+        stk1.push(root);
+
+        while (stk1.empty() == false) {
+
+            node = stk1.top(); stk1.pop();
+
+            stk2.push(node);
+            if (node->left != NULL) stk1.push(node->left);
+            if (node->right != NULL) stk1.push(node->right);
         }
-
-        TreeNode* node_cur = root;
-        // push root
-        stk.push(root);
-        while (stk.empty() == false) {
-            // 1. pick one node
-            node_cur = stk.top();
-            if ((node_cur->left == NULL) && (node_cur->right == NULL)) {
-                stk.pop();
-                // 2. publish the value
-                result.push_back(node_cur->val);       
-            }
-       
-            // 3. push right node
-            if (node_cur->right != NULL) {
-                stk.push(node_cur->right);
-                node_cur->right = NULL;
-            } 
-
-            // 4. push left node
-            if (node_cur->left != NULL) {
-                stk.push(node_cur->left);
-                node_cur->left = NULL;
-            } 
+        while (stk2.empty() == false) {
+            result.push_back(stk2.top()->val);
+            stk2.pop();
         }
-        return result;             
+        return result;
     }
 };
