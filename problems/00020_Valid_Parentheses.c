@@ -1,5 +1,7 @@
 
-
+// stack
+// Runtime: 0 ms, faster than 100.00 % of C online submissions for Valid Parentheses.
+// Memory Usage : 5.5 MB, less than 78.63 % of C online submissions for Valid Parentheses.
 bool isValid(char * s){
 	int length = strlen(s);
 	char stack[10000];
@@ -40,6 +42,7 @@ bool isValid(char * s){
 			break;
 		}
 	}
+	// check if there is any left
 	if (idx_stack != 0) {
 		return false;
 	}

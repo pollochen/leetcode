@@ -75,6 +75,8 @@ public:
 
 // very smart edition (bottom-up)
 // https://leetcode.com/problems/triangle/discuss/1870863/C%2B%2Bor-faster-than-98-11-line-solution
+// Runtime: 7 ms, faster than 72.84 % of C++ online submissions for Triangle.
+// Memory Usage : 8.5 MB, less than 90.27 % of C++ online submissions for Triangle.
 class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle) {

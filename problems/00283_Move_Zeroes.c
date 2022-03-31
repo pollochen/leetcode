@@ -6,12 +6,13 @@ void moveZeroes(int* nums, int numsSize){
 	}
 
 	int i;
-	int count = 0;
+	int count = 0; // index of none-zero
 	for (i = 0; i < numsSize; i++) {
 		if (nums[i] != 0) {
-    		nums[count++] = nums[i];
+    		nums[count++] = nums[i]; 
 		}
 	}
+	// set zero for elements after count
     for (i = count; i < numsSize; i++) {
         nums[i] = 0;
     }

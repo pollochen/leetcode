@@ -6,7 +6,8 @@
  * };
  */
 
-
+// Runtime: 2 ms, faster than 87.47 % of C online submissions for Merge Two Sorted Lists.
+// Memory Usage : 6.5 MB, less than 8.53 % of C online submissions for Merge Two Sorted Lists.
 struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
 	struct ListNode *node_cur = NULL;
 	struct ListNode *node_root = NULL;
