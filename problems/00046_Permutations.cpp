@@ -1,4 +1,7 @@
 // https://www.cnblogs.com/grandyang/p/4358848.html
+// recursive and memorization
+// Runtime: 4 ms, faster than 67.16% of C++ online submissions for Permutations.
+// Memory Usage: 8.1 MB, less than 29.20% of C++ online submissions for Permutations.
 class Solution {
 public:
     void permute_x(vector<int>& nums, vector<bool> &visited, int level, vector<int> &out, vector<vector<int>> &result){
