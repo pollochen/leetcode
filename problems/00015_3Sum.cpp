@@ -33,3 +33,48 @@ public:
 		return result;        
     }
 };
+
+// https://www.code-recipe.com/post/three-sum
+// Runtime: 76 ms, faster than 89.24% of C++ online submissions for 3Sum.
+// Memory Usage: 20.1 MB, less than 52.23% of C++ online submissions for 3Sum.
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int idx1;
+        int idx2;
+        int idx3;
+        int sum;
+        int n = nums.size();
+        vector<vector<int>> result;
+        vector<int> out;
+        for (idx1 = 0; idx1 < n; idx1++) {
+            // check duplication for idx1
+            if ((idx1 > 0) && (nums[idx1] == nums[idx1-1])) {
+                continue;
+            }
+            idx2 = idx1 + 1;
+            idx3 = n - 1;
+            while (idx2 < idx3) {
+                sum = nums[idx1] + nums[idx2] + nums[idx3];
+                if (sum == 0) {
+                    out.clear();
+                    out.push_back(nums[idx1]);
+                    out.push_back(nums[idx2]);
+                    out.push_back(nums[idx3]);
+                    result.push_back(out);
+                    idx3--; // reduce idx3 by 1
+                    // need to check duplication, idx3 must >= 0
+                    while (idx3 >= 0 && nums[idx3] == nums[idx3+1]) idx3--;
+                } else if (sum > 0) {
+                    idx3--; // reduce idx3 by 1
+                    // need to check duplication, idx3 must >= 0
+                    while (idx3 >= 0 && nums[idx3] == nums[idx3+1]) idx3--;
+                } else {
+                    idx2++;
+                }
+            }
+        }
+        return result;
+    }
+};

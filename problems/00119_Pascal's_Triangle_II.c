@@ -3,6 +3,8 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+// Runtime: 2 ms, faster than 45.19% of C online submissions for Pascal's Triangle II.
+// Memory Usage : 5.9 MB, less than 47.60 % of C online submissions for Pascal's Triangle II.
 int* getRow(int rowIndex, int* returnSize) {
 
 	int numRows = rowIndex + 1;
@@ -25,9 +27,9 @@ int* getRow(int rowIndex, int* returnSize) {
 				row_ptr[j] = 1;
 				pre_j = 1;
 			} else {
-				int tmp = row_ptr[j];
+				int tmp = row_ptr[j]; // save [j]
 				row_ptr[j] = row_ptr[j] + pre_j;
-				pre_j = tmp;
+				pre_j = tmp; // restore pre_j with [j]
 			}
 		}
 	}
