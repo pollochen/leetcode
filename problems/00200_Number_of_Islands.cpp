@@ -1,3 +1,5 @@
+// Runtime: 31 ms, faster than 95.33% of C++ online submissions for Number of Islands.
+// Memory Usage : 12.3 MB, less than 83.94 % of C++ online submissions for Number of Islands.
 class Solution {
 public:
 	void mark_zero(vector<vector<char>>& board, int row, int col, int row_cnt, int col_cnt)

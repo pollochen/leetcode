@@ -1,3 +1,5 @@
+// Runtime: 3 ms, faster than 64.10% of C online submissions for Add Strings.
+// Memory Usage : 5.8 MB, less than 98.72 % of C online submissions for Add Strings.
 char* reverseString(char *s)
 {
 	int head = 0, tail = strlen(s) - 1;

@@ -1,4 +1,5 @@
-// 76.11% faster
+// Runtime: 3 ms, faster than 95.12 % of C++ online submissions for Multiply Strings.
+// Memory Usage : 6.3 MB, less than 98.14 % of C++ online submissions for Multiply Strings.
 class Solution {
 public:
 	void update(string &s, int idx, int n)
