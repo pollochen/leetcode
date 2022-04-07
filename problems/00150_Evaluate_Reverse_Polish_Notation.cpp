@@ -1,3 +1,6 @@
+// stack
+// Runtime: 7 ms, faster than 95.24 % of C++ online submissions for Evaluate Reverse Polish Notation.
+// Memory Usage : 11.9 MB, less than 89.01 % of C++ online submissions for Evaluate Reverse Polish Notation.
 class Solution {
 public:
 	int evalRPN(vector<string>& tokens) {

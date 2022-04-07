@@ -3,6 +3,8 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+// Runtime: 4 ms, faster than 47.40% of C online submissions for Plus One.
+// Memory Usage: 6.1 MB, less than 29.48% of C online submissions for Plus One.
 int* plusOne(int* digits, int digitsSize, int* returnSize) {
 	if ((digits == NULL) || (digitsSize == 0)) {
 		*returnSize = 0;

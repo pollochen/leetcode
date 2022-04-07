@@ -1,3 +1,6 @@
+// slinding window with frequency of characters
+// Runtime: 14 ms, faster than 77.27% of C++ online submissions for Find All Anagrams in a String.
+// Memory Usage : 8.7 MB, less than 38.06 % of C++ online submissions for Find All Anagrams in a String.
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
