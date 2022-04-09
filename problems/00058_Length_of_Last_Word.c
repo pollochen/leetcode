@@ -1,3 +1,5 @@
+// Runtime: 7 ms, faster than 7.13 % of C online submissions for Length of Last Word.
+// Memory Usage : 5.6 MB, less than 73.15 % of C online submissions for Length of Last Word.
 int lengthOfLastWord(char * s) {
 	int length = strlen(s);
 	int i;

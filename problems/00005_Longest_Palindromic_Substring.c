@@ -1,3 +1,7 @@
+// https://leetcode.com/problems/longest-palindromic-substring/solution/
+// Approach 4: Expand Around Center
+// Runtime: 16 ms, faster than 84.36 % of C online submissions for Longest Palindromic Substring.
+// Memory Usage : 6.4 MB, less than 35.26 % of C online submissions for Longest Palindromic Substring.
 int expand_check(char *s, int left, int right, int len) {
 	if (s[left] != s[right]) return 0;
 	if (right >= len) return 0;

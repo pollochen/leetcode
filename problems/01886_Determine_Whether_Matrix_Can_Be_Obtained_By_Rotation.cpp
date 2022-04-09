@@ -1,6 +1,5 @@
-// https://www.geeksforgeeks.org/rotate-a-matrix-by-90-degree-in-clockwise-direction-without-using-any-extra-space/
-// Runtime: 3 ms, faster than 63.03% of C++ online submissions for Rotate Image.
-// Memory Usage : 7.2 MB, less than 33.09 % of C++ online submissions for Rotate Image.
+// Runtime: 8 ms, faster than 44.81% of C++ online submissions for Determine Whether Matrix Can Be Obtained By Rotation.
+// Memory Usage: 11.1 MB, less than 91.86% of C++ online submissions for Determine Whether Matrix Can Be Obtained By Rotation.
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
@@ -20,5 +19,13 @@ public:
                 swap(matrix[row][col], matrix[row][n - 1 - col]);
             }
         }
+    }    
+    bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
+        if (mat == target) return true;
+        for (int i = 0; i < 3; i++) {
+            rotate(mat);
+            if (mat == target) return true;                
+        }
+        return false;
     }
 };

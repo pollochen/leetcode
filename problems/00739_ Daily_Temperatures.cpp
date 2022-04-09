@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/daily-temperatures/solution/
 // Approach 1: Monotonic Stack, 52.39% faster
+// Runtime: 283 ms, faster than 21.25 % of C++ online submissions for Daily Temperatures.
+// Memory Usage : 88.8 MB, less than 49.31 % of C++ online submissions for Daily Temperatures.
 class Solution {
 public:
 	vector<int> dailyTemperatures(vector<int>& temperatures) {

@@ -1,4 +1,6 @@
 // https://www.cnblogs.com/grandyang/p/5454125.html
+// Runtime: 47 ms, faster than 5.42 % of C++ online submissions for Top K Frequent Elements.
+// Memory Usage : 13.7 MB, less than 71.77 % of C++ online submissions for Top K Frequent Elements.
 class Solution {
 public:
 	vector<int> topKFrequent(vector<int>& nums, int k) {
