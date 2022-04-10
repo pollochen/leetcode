@@ -6,7 +6,8 @@
  * };
  */
 
-
+// Runtime: 14 ms, faster than 74.04 % of C online submissions for Add Two Numbers.
+// Memory Usage : 7.6 MB, less than 64.15 % of C online submissions for Add Two Numbers.
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
 
 	struct ListNode *node_root = NULL;

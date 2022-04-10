@@ -1,3 +1,6 @@
+// brute force
+// Runtime: 0 ms, faster than 100.00 % of C++ online submissions for Spiral Matrix.
+// Memory Usage : 7 MB, less than 30.80 % of C++ online submissions for Spiral Matrix.
 class Solution {
 public:
 #define DIR_R 0

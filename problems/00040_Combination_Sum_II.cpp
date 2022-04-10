@@ -31,6 +31,78 @@ public:
     }
 };
 
+// recursion with sorted array
+// Runtime: 7 ms, faster than 69.52 % of C++ online submissions for Combination Sum II.
+// Memory Usage : 10.7 MB, less than 68.29 % of C++ online submissions for Combination Sum II.
+class Solution {
+public:
+    void x(vector<int>& candidates, int target, int start, vector<int>& out, vector<vector<int>>& result)
+    {
+        if (target < 0) return;
+
+        if (target == 0) {
+            result.push_back(out);
+            return;
+        }
+
+        for (int i = start; i < candidates.size(); i++) {
+            int num = candidates[i];
+            if (target - num >= 0) {
+                if ((i == start) || (i > start && candidates[i - 1] != candidates[i])) {
+                    // only select same number once in the same iteration
+                    out.push_back(num);
+                    x(candidates, target - num, i + 1, out, result); // must be (i + 1) since i is selected
+                    out.pop_back();
+                }
+            }
+        }
+    }
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<int> out;
+        vector<vector<int>> result;
+        sort(candidates.begin(), candidates.end()); // sort
+        x(candidates, target, 0, out, result);
+        return result;
+    }
+};
+// recursion with sorted array + more condition check
+// Runtime: 0 ms, faster than 100.00 % of C++ online submissions for Combination Sum II.
+// Memory Usage : 10.5 MB, less than 87.00 % of C++ online submissions for Combination Sum II.
+class Solution {
+public:
+    void x(vector<int>& candidates, int target, int start, vector<int>& out, vector<vector<int>>& result)
+    {
+        if (target < 0) return;
+
+        if (target == 0) {
+            result.push_back(out);
+            return;
+        }
+
+        for (int i = start; i < candidates.size(); i++) {
+            int num = candidates[i];
+            if (target - num >= 0) {
+                if ((i == start) || (i > start && candidates[i - 1] != candidates[i])) {
+                    out.push_back(num);
+                    x(candidates, target - num, i + 1, out, result);
+                    out.pop_back();
+                }
+            } else {
+                // since the array is sorted, the later case won't match
+                // we can stop this iteration
+                break;
+            }
+        }
+    }
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<int> out;
+        vector<vector<int>> result;
+        sort(candidates.begin(), candidates.end()); // sort
+        x(candidates, target, 0, out, result);
+        return result;
+    }
+};
+
 vector<int> int_array_to_vector(int *nums, int count)
 {
     vector<int> result;
