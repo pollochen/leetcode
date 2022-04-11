@@ -1,3 +1,5 @@
+// Runtime: 3 ms, faster than 33.41 % of C++ online submissions for Spiral Matrix II.
+// Memory Usage : 6.7 MB, less than 17.96 % of C++ online submissions for Spiral Matrix II.
 class Solution {
 public:
 #define DIR_R 0

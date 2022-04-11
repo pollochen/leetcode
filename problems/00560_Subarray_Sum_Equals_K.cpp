@@ -25,6 +25,8 @@
 	}
 
 // https://leetcode.com/problems/subarray-sum-equals-k/solution/	
+// Runtime: 116 ms, faster than 46.62 % of C++ online submissions for Subarray Sum Equals K.
+// Memory Usage : 36.1 MB, less than 86.02 % of C++ online submissions for Subarray Sum Equals K.
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
