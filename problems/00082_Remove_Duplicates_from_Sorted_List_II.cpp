@@ -8,6 +8,8 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+// Runtime: 8 ms, faster than 75.93% of C++ online submissions for Remove Duplicates from Sorted List II.
+// Memory Usage: 11.1 MB, less than 60.39% of C++ online submissions for Remove Duplicates from Sorted List II.
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {

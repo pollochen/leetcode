@@ -1,3 +1,5 @@
+// Runtime: 6 ms, faster than 11.19 % of C++ online submissions for Letter Combinations of a Phone Number.
+// Memory Usage : 6.5 MB, less than 59.44 % of C++ online submissions for Letter Combinations of a Phone Number.
 class Solution {
 public:
 	void dfs(string digits, int pos, string out, vector<string> &result) {
@@ -20,6 +22,44 @@ public:
 		}
 	}
 
+	vector<string> letterCombinations(string digits) {
+		vector<string> result;
+		if (digits.length() == 0) return result;
+		dfs(digits, 0, "", result);
+		return result;
+	}
+};
+
+// refined version
+// Runtime: 2 ms, faster than 41.79 % of C++ online submissions for Letter Combinations of a Phone Number.
+// Memory Usage : 6.6 MB, less than 35.43 % of C++ online submissions for Letter Combinations of a Phone Number.
+class Solution {
+public:
+	void dfs(string digits, int pos, string out, vector<string>& result) {
+		static vector<vector<char>> table = {
+			{'a', 'b', 'c'},
+			{'d', 'e', 'f'},
+			{'g', 'h', 'i'},
+			{'j', 'k', 'l'},
+			{'m', 'n', 'o'},
+			{'p', 'q', 'r', 's'},
+			{'t', 'u', 'v'},
+			{'w', 'x', 'y', 'z'}
+		};
+
+		if (pos == digits.size()) {
+			result.push_back(out);
+			return;
+		}
+
+		int idx = (digits[pos] - '2');
+		vector<char> &x = table[idx];
+		for (int i = 0; i < x.size(); i++) {
+			out.push_back(x[i]);
+			dfs(digits, pos + 1, out, result);
+			out.pop_back();
+		}
+	}
 	vector<string> letterCombinations(string digits) {
 		vector<string> result;
 		if (digits.length() == 0) return result;
