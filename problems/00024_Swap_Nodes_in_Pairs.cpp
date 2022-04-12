@@ -9,6 +9,8 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+// Runtime: 3 ms, faster than 69.71% of C++ online submissions for Swap Nodes in Pairs.
+// Memory Usage: 7.6 MB, less than 6.94% of C++ online submissions for Swap Nodes in Pairs.
 class Solution {
 public:
 	ListNode* swapPairs(ListNode* head) {
@@ -31,8 +33,8 @@ public:
 	}
 };
 
-// 100% faster version
-
+// Runtime: 3 ms, faster than 69.71% of C++ online submissions for Swap Nodes in Pairs.
+// Memory Usage: 7.6 MB, less than 6.94% of C++ online submissions for Swap Nodes in Pairs.
 /**
  * Definition for singly-linked list.
  * struct ListNode {
