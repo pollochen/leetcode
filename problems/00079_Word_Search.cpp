@@ -1,3 +1,6 @@
+// recurrsion with memorization
+// Runtime: 320 ms, faster than 75.70% of C++ online submissions for Word Search.
+// Memory Usage: 8 MB, less than 36.23% of C++ online submissions for Word Search.
 class Solution {
 public:
     bool dfs(vector<vector<char>>& board, int row, int col, int pos, string word)
@@ -82,5 +85,4 @@ public:
         }
         return false;
     }
-};
 };

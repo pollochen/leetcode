@@ -39,3 +39,57 @@ public:
         return result;
     }
 };
+
+
+// https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/solution/
+// Approach 2: Iterative using parent pointers
+// Runtime: 32 ms, faster than 17.43% of C++ online submissions for Lowest Common Ancestor of a Binary Tree.
+// Memory Usage: 17.2 MB, less than 12.18% of C++ online submissions for Lowest Common Ancestor of a Binary Tree.
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        TreeNode *result;
+        unordered_map<TreeNode *, TreeNode *> umap;
+        queue<TreeNode *> que;
+        que.push(root);
+        int size;
+        bool flag_p = false;
+        bool flag_q = false;
+        while (que.empty() == false) {
+            size = que.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode *node = que.front(); que.pop();
+                if (node->left != NULL) {
+                    umap[node->left] = node;
+                    que.push(node->left);
+                }
+                if (node->right != NULL) {
+                    umap[node->right] = node;
+                    que.push(node->right);
+                }
+                if (node == p) flag_p = true;
+                if (node == q) flag_q = true;
+                if (flag_p == true && flag_q == true) {
+                    break;
+                }
+            }
+        }
+
+        // find all parents of p
+        unordered_set<TreeNode *> usp;
+        while (p != NULL) {
+            usp.insert(p);
+            p = umap[p];
+
+        }
+
+        // check if parents of q in parents of p
+        while (usp.count(q) == 0) {
+            q = umap[q];
+        }
+
+        result = q;
+
+        return result;
+    }
+};
