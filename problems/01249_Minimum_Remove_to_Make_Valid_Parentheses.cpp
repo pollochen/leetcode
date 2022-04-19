@@ -38,6 +38,47 @@ public:
     }
 };
 
+// stack version
+// Runtime: 29 ms, faster than 54.57% of C++ online submissions for Minimum Remove to Make Valid Parentheses.
+// Memory Usage: 13.1 MB, less than 10.02% of C++ online submissions for Minimum Remove to Make Valid Parentheses.
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        stack<pair<char, int>> stk; // 
+        int ch;
+        
+        // store unmatch pair in stack
+        for (int i = 0; i < s.length(); i++) {
+            ch = s[i];
+            if (ch == '(') {
+                stk.push({ch, i});
+            } else if (ch == ')') {
+                if (stk.empty() == false && stk.top().first == '(') {
+                    // match, pop it
+                    stk.pop();
+                } else {
+                    stk.push({ch, i});
+                }
+            }
+        }
+        
+        string result;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (stk.empty() == false) {
+                if (stk.top().second != i) {
+                    result += s[i];
+                } else {
+                    stk.pop();
+                }                
+            } else {
+                result += s[i];
+            }
+        }
+        reverse(result.begin(), result.end());
+        return result;
+    }
+};
+
 void test_01249_Minimum_Remove_to_Make_Valid_Parentheses(void)
 {
     Solution s;
