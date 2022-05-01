@@ -47,6 +47,48 @@ public:
     }
 };
 
+// use stack
+// Runtime: 27 ms, faster than 88.85% of C++ online submissions for Binary Search Tree Iterator.
+// Memory Usage: 24.1 MB, less than 87.61% of C++ online submissions for Binary Search Tree Iterator.
+class BSTIterator {
+private:
+    stack<TreeNode *> m_stk;
+    TreeNode *m_cur;
+public:
+
+    BSTIterator(TreeNode* root) {
+        // traverse left until NULL and push eahc node into stack
+        m_cur = root;
+        while (m_cur != NULL) {
+            m_stk.push(m_cur);
+            m_cur = m_cur->left;
+        }
+    }
+
+    int next() {
+        if (m_stk.empty() == false) {
+            TreeNode *node = m_stk.top();
+            m_stk.pop();
+            int val = node->val;
+            // traverse left of it's right node until NULL and push eahc node into stack
+            m_cur = node->right;
+            while (m_cur != NULL) {
+                m_stk.push(m_cur);
+                m_cur = m_cur->left;
+            }
+            return val;
+        }
+        return 0;
+    }
+
+    bool hasNext() {
+        if (m_stk.empty() == true) {
+            return false;
+        }
+        return true;
+    }
+};
+
 /**
  * Your BSTIterator object will be instantiated and called as such:
  * BSTIterator* obj = new BSTIterator(root);
